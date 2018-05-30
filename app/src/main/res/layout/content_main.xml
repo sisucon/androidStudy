@@ -6,15 +6,34 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
+    tools:layout_editor_absoluteY="25dp"
     tools:showIn="@layout/app_bar_main">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
+    <android.support.v4.view.ViewPager
+        android:id="@+id/container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="0dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="508dp"
+        android:background="#5fffffff"
+        android:foregroundGravity="bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabIndicatorColor="#474753cf"
+        app:tabIndicatorHeight="10px"
+        app:tabBackground="@drawable/selected"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="#7de4f0"
+        app:tabTextColor="@color/colorPrimary" />
 
 </android.support.constraint.ConstraintLayout>

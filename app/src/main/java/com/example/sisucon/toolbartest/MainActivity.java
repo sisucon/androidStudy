@@ -1,8 +1,10 @@
 package com.example.sisucon.toolbartest;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -19,15 +21,23 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TextView;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
         private ViewPager mViewPager;
-         private SectionsPagerAdapter mSectionsPagerAdapter;
-
+        private SectionsPagerAdapter mSectionsPagerAdapter;
+        private TabLayout mTabLayout;
+        private TabLayout.Tab one;
+        private TabLayout.Tab two;
+        private TabLayout.Tab three;
+        private TabLayout.Tab four;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,10 +46,19 @@ public class MainActivity extends AppCompatActivity
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        mTabLayout = (TabLayout)findViewById(R.id.tabLayout);
+        mTabLayout.setupWithViewPager(mViewPager);
+        one = mTabLayout.getTabAt(0);
+        two = mTabLayout.getTabAt(1);
+        three = mTabLayout.getTabAt(2);
+        four = mTabLayout.getTabAt(3);
+        one.setText("首页");
+        two.setText("课程");
+        three.setText("活动");
+        four.setText("我的");
     }
 
     @Override
@@ -80,6 +99,7 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        System.out.println(5);
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         System.out.println(5);
@@ -163,4 +183,5 @@ public class MainActivity extends AppCompatActivity
             return 4;
         }
     }
+
 }
