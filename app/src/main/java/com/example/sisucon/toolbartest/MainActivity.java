@@ -134,6 +134,8 @@ public class MainActivity extends AppCompatActivity
             layoutList.add(layoutInflater.inflate(R.layout.activity_layout1,null));
             layoutList.add(layoutInflater.inflate(R.layout.activity_layout2,null));
             layoutList.add(layoutInflater.inflate(R.layout.activity_layout3,null));
+            layoutList.add(layoutInflater.inflate(R.layout.activity_layout4,null));
+
             return layoutList.get(getArguments().getInt(ARG_SECTION_NUMBER)-1);
         }
     }
@@ -158,7 +160,7 @@ public class MainActivity extends AppCompatActivity
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 3;
+            return 4;
         }
     }
 }
